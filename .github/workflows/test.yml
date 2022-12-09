@@ -18,12 +18,14 @@ jobs:
   test:
     strategy:
       matrix:
+        os:
+        - ubuntu-latest
+        - macos-latest
         formula:
-        - "stellar-xdr"
-        - "stellar-core-futurenet"
-        - "soroban-cli"
-    runs-on: ${{ matrix.sys.os }}
-    runs-on: ubuntu-latest
+        - stellar-xdr
+        - stellar-core-futurenet
+        - soroban-cli
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
     - run: time brew install --formula --build-from-source ./Formula/${{ matrix.formula }}.rb

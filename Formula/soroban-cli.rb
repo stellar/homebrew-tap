@@ -6,7 +6,9 @@ class SorobanCli < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--bin=soroban", *std_cargo_args
+    chdir "cmd/soroban-cli" do
+      system "cargo", "install", "--bin=soroban", *std_cargo_args
+    end
   end
 
   test do

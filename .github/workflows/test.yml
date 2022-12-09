@@ -28,4 +28,5 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v3
+    - uses: Homebrew/actions/setup-homebrew@24adfe27fc8e515deb1753996e07c111c1c16a96
     - run: time brew install --formula --build-from-source ./Formula/${{ matrix.formula }}.rb

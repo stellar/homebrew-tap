@@ -34,5 +34,5 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: Homebrew/actions/setup-homebrew@24adfe27fc8e515deb1753996e07c111c1c16a96
-    - run: brew install --formula --build-from-source ./Formula/${{ matrix.formula }}.rb
-    - run: brew test --force --verbose ${{ matrix.formula }}
+    - run: brew install --verbose --formula --build-from-source ./Formula/${{ matrix.formula }}.rb
+    - run: brew test --verbose --force ${{ matrix.formula }}

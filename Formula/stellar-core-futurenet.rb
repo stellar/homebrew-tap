@@ -6,7 +6,7 @@ class StellarCoreFuturenet < Formula
       # couple of compatible improvements that are helpful.
       revision: "776cb5110af84783c63a7cf1a50dc9cbf4b311d9"
 
-  keg_only :versioned_formulae
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

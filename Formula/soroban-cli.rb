@@ -12,6 +12,6 @@ class SorobanCli < Formula
   end
 
   test do
-    system "soroban", "version"
+    assert_match "soroban 0.3.3", shell_output("#{bin}/soroban version")
   end
 end

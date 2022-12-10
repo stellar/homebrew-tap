@@ -1,5 +1,5 @@
 class SorobanCli < Formula
-  version "0.3.3"
+
   url "https://github.com/stellar/soroban-tools.git", tag: "v0.3.3"
   head "https://github.com/stellar/soroban-tools.git", branch: "main"
 

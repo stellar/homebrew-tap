@@ -1,5 +1,5 @@
 class StellarXdr < Formula
-  version "0.0.11"
+
   url "https://github.com/stellar/rs-stellar-xdr.git", tag: "v0.0.11"
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"
 

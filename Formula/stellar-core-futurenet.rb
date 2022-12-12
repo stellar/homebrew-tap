@@ -10,7 +10,6 @@ class StellarCoreFuturenet < Formula
 
   keg_only :versioned_formula
 
-  depends_on macos: :catalina # Requires C++17 filesystem
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build # Bison 3.0.4+
@@ -21,6 +20,7 @@ class StellarCoreFuturenet < Formula
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
+  depends_on macos: :catalina # Requires C++17 filesystem
   depends_on "rust"
   uses_from_macos "flex" => :build
 

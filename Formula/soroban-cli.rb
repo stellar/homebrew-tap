@@ -1,5 +1,5 @@
 class SorobanCli < Formula
-  desc "CLI for interacting with Soroban"
+  desc "CLI for interacting with and deploying to Soroban"
   homepage "https://soroban.stellar.org"
   url "https://github.com/stellar/soroban-tools.git", tag: "v0.3.3"
   head "https://github.com/stellar/soroban-tools.git", branch: "main"

@@ -1,5 +1,6 @@
 class StellarXdr < Formula
-
+  desc "Stellar XDR CLI."
+  homepage "https://github.com/stellar/rs-stellar-xdr"
   url "https://github.com/stellar/rs-stellar-xdr.git", tag: "v0.0.11"
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"
 

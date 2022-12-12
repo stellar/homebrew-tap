@@ -1,5 +1,5 @@
 class StellarCoreFuturenet < Formula
-  desc "Stellar Core including Soroban compiled for Futurenet"
+  desc "FStellar Core including Soroban compiled for Futurenet"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
       # The version of stellar-core actually deployed to Futurenet is

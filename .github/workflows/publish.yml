@@ -3,6 +3,10 @@ on:
   pull_request_target:
     types:
       - labeled
+
+env:
+  BRANCH: ${{ github.event.pull_request.head.ref }}
+
 jobs:
   pr-pull:
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
@@ -26,10 +30,8 @@ jobs:
         uses: Homebrew/actions/git-try-push@24adfe27fc8e515deb1753996e07c111c1c16a96
         with:
           token: ${{ github.token }}
-          branch: main
+          branch: $BRANCH
 
       - name: Delete branch
         if: github.event.pull_request.head.repo.fork == false
-        env:
-          BRANCH: ${{ github.event.pull_request.head.ref }}
         run: git push --delete origin $BRANCH

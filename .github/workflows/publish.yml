@@ -1,4 +1,4 @@
-name: brew pr-pull
+name: Pull bottles from PR into Release
 on:
   pull_request_target:
     types:
@@ -31,7 +31,3 @@ jobs:
         with:
           token: ${{ github.token }}
           branch: ${{ env.BRANCH }}
-
-      - name: Delete branch
-        if: github.event.pull_request.head.repo.fork == false
-        run: git push --delete origin $BRANCH

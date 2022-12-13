@@ -1,4 +1,4 @@
-name: brew test-bot
+name: Test Formulas and Build Bottles
 on:
   push:
     branches:

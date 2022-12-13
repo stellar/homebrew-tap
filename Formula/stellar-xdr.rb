@@ -1,5 +1,5 @@
 class StellarXdr < Formula
-  desc "CLI for encoding and decoding Stellar XDR"
+  desc "CLI for encoding/decoding Stellar XDR"
   homepage "https://github.com/stellar/rs-stellar-xdr"
   url "https://github.com/stellar/rs-stellar-xdr.git", tag: "v0.0.11"
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"

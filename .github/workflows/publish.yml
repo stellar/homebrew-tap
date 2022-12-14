@@ -24,7 +24,7 @@ jobs:
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ github.token }}
           HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.actor }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
-        run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY --clean --no-autosquash $PULL_REQUEST
+        run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY --no-commit $PULL_REQUEST
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@24adfe27fc8e515deb1753996e07c111c1c16a96

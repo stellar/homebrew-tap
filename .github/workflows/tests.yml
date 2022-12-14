@@ -53,11 +53,18 @@ jobs:
       - run: brew test-bot --only-formulae --root-url 'https://ghcr.io/v2/stellar/homebrew-tap'
         if: github.event_name == 'pull_request'
 
+      - name: Upload bottles as artifact
+        if: always() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: '*.bottle.*'
+
       - name: Update formula with bottle
         if: github.event_name == 'pull_request'
         run: |
           git stash
-          git checkout ${{ github.ref_name }}
+          git checkout ${{ github.head_ref }}
           git stash apply
           echo ---
           git log --oneline --decorate --graph
@@ -67,11 +74,3 @@ jobs:
           git add ./Formula
           git commit -m 'Update bottles in Formula'
           git push
-
-
-      - name: Upload bottles as artifact
-        if: always() && github.event_name == 'pull_request'
-        uses: actions/upload-artifact@main
-        with:
-          name: bottles
-          path: '*.bottle.*'

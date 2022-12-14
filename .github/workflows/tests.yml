@@ -73,4 +73,9 @@ jobs:
           echo ---
           git add ./Formula
           git commit -m 'Update bottles in Formula'
-          git push
+
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@24adfe27fc8e515deb1753996e07c111c1c16a96
+        with:
+          token: ${{ github.token }}
+          branch: ${{ github.head_ref }}

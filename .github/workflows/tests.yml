@@ -29,6 +29,9 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@24adfe27fc8e515deb1753996e07c111c1c16a96
 
+      - name: Set up git
+        uses: Homebrew/actions/git-user-config@24adfe27fc8e515deb1753996e07c111c1c16a96
+
       - name: Cache Homebrew Bundler RubyGems
         id: cache
         uses: actions/cache@v3
@@ -56,3 +59,9 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
+
+      - name: Update formula with bottle
+        run: |
+          git add ./Formula
+          git commit -m 'Update bottles in Formula'
+          git push

@@ -59,23 +59,3 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
-
-      - name: Update formula with bottle
-        if: github.event_name == 'pull_request'
-        run: |
-          git stash
-          git checkout ${{ github.head_ref }}
-          git stash apply
-          echo ---
-          git log --oneline --decorate --graph
-          echo ---
-          git status
-          echo ---
-          git add ./Formula
-          git commit -m 'Update bottles in Formula'
-
-      - name: Push commits
-        uses: Homebrew/actions/git-try-push@24adfe27fc8e515deb1753996e07c111c1c16a96
-        with:
-          token: ${{ github.token }}
-          branch: ${{ github.head_ref }}

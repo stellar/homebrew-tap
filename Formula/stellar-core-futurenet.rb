@@ -2,10 +2,7 @@ class StellarCoreFuturenet < Formula
   desc "Futurenet build of Stellar Core including Soroban"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
-      # The version of stellar-core actually deployed to Futurenet is
-      # b3a6bc28116e80bff7889c2f3bcd7c30dd1ac4d6, however this revision adds a
-      # couple of compatible improvements that are helpful.
-      revision: "776cb5110af84783c63a7cf1a50dc9cbf4b311d9"
+      revision: "c0ad35aa19297e112d71fcc5755458495f99a237"
   version "0"
 
   keg_only :versioned_formula

@@ -2,7 +2,7 @@ class StellarCoreFuturenet < Formula
   desc "Futurenet build of Stellar Core including Soroban"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
-      revision: "c0ad35aa19297e112d71fcc5755458495f99a237"
+      revision: "3a201d2b5ecee34d6dcc0466633783f27b7fa97c"
   version "0"
 
   keg_only :versioned_formula
@@ -46,7 +46,7 @@ class StellarCoreFuturenet < Formula
   test do
     # To generate this version string, run `git describe --always --dirty --tags` in
     # your stellar-core repo with the released core revision checked out.
-    assert_match "v19.6.0-45-gc0ad35aa1", shell_output("#{bin}/stellar-core version")
+    assert_match "v19.7.0-16-g3a201d2b5", shell_output("#{bin}/stellar-core version")
     assert_match "soroban-env-host", shell_output("#{bin}/stellar-core version")
     assert_match "Secret seed", shell_output("#{bin}/stellar-core gen-seed")
   end

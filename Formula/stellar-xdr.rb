@@ -1,7 +1,7 @@
 class StellarXdr < Formula
   desc "CLI for encoding and decoding Stellar XDR"
   homepage "https://github.com/stellar/rs-stellar-xdr"
-  url "https://github.com/stellar/rs-stellar-xdr.git", tag: "v0.0.14"
+  url "https://github.com/stellar/rs-stellar-xdr.git", tag: "v0.0.15"
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"
 
   depends_on "rust" => :build
@@ -11,6 +11,6 @@ class StellarXdr < Formula
   end
 
   test do
-    assert_match "stellar-xdr 0.0.14", shell_output("#{bin}/stellar-xdr version")
+    assert_match "stellar-xdr 0.0.15", shell_output("#{bin}/stellar-xdr version")
   end
 end

@@ -2,7 +2,7 @@ class StellarCoreFuturenet < Formula
   desc "Futurenet build of Stellar Core including Soroban"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
-      revision: "871accefc0c4a703c1321b4f0e48cf6e03b41960"
+      revision: "064a2787acb9e98c70567523785333581ee1ffa4"
   version "0"
 
   keg_only :versioned_formula
@@ -45,8 +45,12 @@ class StellarCoreFuturenet < Formula
 
   test do
     # To generate this version string, run `git describe --always --dirty --tags` in
-    # your stellar-core repo with the released core revision checked out.
-    assert_match "v19.7.0-22-g871accefc", shell_output("#{bin}/stellar-core version")
+    # your stellar-core repo with the released core revision checked out. BUT SEE NOTE BELOW.
+    # NOTE: The version was taken from the PR where this assert failed. The command mentioned above will
+    # give you the right string, but it looks like the last char is removed and there's a newline
+    # because stellar-core version returns more info. Related to https://github.com/stellar/homebrew-tap/issues/15,
+    # which is why we missed assert mismatches.
+    assert_match "v19.8.0-35-g064a2787\n", shell_output("#{bin}/stellar-core version | head -n 1")
     assert_match "soroban-env-host", shell_output("#{bin}/stellar-core version")
     assert_match "Secret seed", shell_output("#{bin}/stellar-core gen-seed")
   end

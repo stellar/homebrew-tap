@@ -46,7 +46,7 @@ class StellarCoreFuturenet < Formula
   test do
     # To generate this version string, run `git describe --always --dirty --tags` in
     # your stellar-core repo with the released core revision checked out.
-    assert_match "v19.8.0-35-g064a2787a", shell_output("#{bin}/stellar-core version")
+    assert_match "v19.8.0-35-g064a2787a", shell_output("#{bin}/stellar-core version | head -n 1")
     assert_match "soroban-env-host", shell_output("#{bin}/stellar-core version")
     assert_match "Secret seed", shell_output("#{bin}/stellar-core gen-seed")
   end

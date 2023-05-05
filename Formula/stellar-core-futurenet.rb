@@ -50,7 +50,7 @@ class StellarCoreFuturenet < Formula
     # give you the right string, but it looks like the last char is removed and there's a newline
     # because stellar-core version returns more info. Related to https://github.com/stellar/homebrew-tap/issues/15,
     # which is why we missed assert mismatches.
-    assert_match "v19.8.0-35-g064a2787\n", shell_output("#{bin}/stellar-core version | head -n 1")
+    assert_match "v19.10.0-59-g57cc8198c", shell_output("#{bin}/stellar-core version")
     assert_match "soroban-env-host", shell_output("#{bin}/stellar-core version")
     assert_match "Secret seed", shell_output("#{bin}/stellar-core gen-seed")
   end

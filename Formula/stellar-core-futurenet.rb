@@ -2,7 +2,7 @@ class StellarCoreFuturenet < Formula
   desc "Futurenet build of Stellar Core including Soroban"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
-      revision: "064a2787acb9e98c70567523785333581ee1ffa4"
+      revision: "57cc8198c95c95114d60f7c0f1498933ff57bd9b"
   version "0"
 
   keg_only :versioned_formula

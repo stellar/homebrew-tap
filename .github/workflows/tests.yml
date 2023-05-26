@@ -52,7 +52,16 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.GH_PROJECT_MANAGEMENT_APP_ID }}
+          private_key: ${{ secrets.GH_PROJECT_MANAGEMENT_APP_PEM }}
+
       - run: brew test-bot --only-formulae --root-url 'https://ghcr.io/v2/stellar/homebrew-tap'
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ steps.generate_token.outputs.token }}
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact

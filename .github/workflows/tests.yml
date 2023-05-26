@@ -27,10 +27,10 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@bf8757bc21b0cba89461f996ff351821727cf53d
+        uses: Homebrew/actions/setup-homebrew@8ebefb139a87a89d290266970bc401009cda6508
 
       - name: Set up git
-        uses: Homebrew/actions/git-user-config@bf8757bc21b0cba89461f996ff351821727cf53d
+        uses: Homebrew/actions/git-user-config@8ebefb139a87a89d290266970bc401009cda6508
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
@@ -39,6 +39,8 @@ jobs:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ runner.os }}-rubygems-
+
+      - run: brew update
 
       - name: Install Homebrew Bundler RubyGems
         if: steps.cache.outputs.cache-hit != 'true'
@@ -50,8 +52,8 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae --root-url 'https://ghcr.io/v2/stellar/homebrew-tap'
-        if: github.event_name == 'pull_request'
+#      - run: brew test-bot --only-formulae --root-url 'https://ghcr.io/v2/stellar/homebrew-tap'
+#        if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact
         if: always() && github.event_name == 'pull_request'

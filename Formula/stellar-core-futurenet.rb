@@ -2,7 +2,7 @@ class StellarCoreFuturenet < Formula
   desc "Futurenet build of Stellar Core including Soroban"
   homepage "https://github.com/stellar/stellar-core"
   url "https://github.com/stellar/stellar-core.git",
-      revision: "6649f517339d3d88d50bebf2258906e66e3f6c32"
+      revision: "2109a168a895349f87b502ae3d182380b378fa47"
   version "0"
 
   keg_only :versioned_formula
@@ -50,7 +50,7 @@ class StellarCoreFuturenet < Formula
     # give you the right string, but it looks like the last char is removed and there's a newline
     # because stellar-core version returns more info. Related to https://github.com/stellar/homebrew-tap/issues/15,
     # which is why we missed assert mismatches.
-    assert_match "soroban-preview-9-May22-dirty", shell_output("#{bin}/stellar-core version")
+    assert_match "soroban-preview-10-June29", shell_output("#{bin}/stellar-core version")
     assert_match "soroban-env-host", shell_output("#{bin}/stellar-core version")
     assert_match "Secret seed", shell_output("#{bin}/stellar-core gen-seed")
   end

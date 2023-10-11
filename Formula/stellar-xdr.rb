@@ -11,6 +11,6 @@ class StellarXdr < Formula
   end
 
   test do
-    assert_match "stellar-xdr v20.0.0-rc1", shell_output("#{bin}/stellar-xdr version")
+    assert_match "stellar-xdr 20.0.0-rc1", shell_output("#{bin}/stellar-xdr version")
   end
 end

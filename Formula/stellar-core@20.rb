@@ -2,8 +2,8 @@ class StellarCoreAT20 < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v20.0.0-rc.2.2",
-      revision: "8344f3369493bd4c89796dbb9f0f7aabade7e951"
+    tag:      "v20.0.0-rc.2.2",
+    revision: "8344f3369493bd4c89796dbb9f0f7aabade7e951"
   license "Apache-2.0"
 
   depends_on "coreutils" => :build

@@ -6,6 +6,7 @@ class StellarCoreAT20 < Formula
       revision: "8344f3369493bd4c89796dbb9f0f7aabade7e951"
   license "Apache-2.0"
 
+  depends_on "coreutils" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build # Bison 3.0.4+

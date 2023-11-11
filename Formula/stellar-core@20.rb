@@ -59,6 +59,7 @@ class StellarCoreAT20 < Formula
 
   on_linux do
     depends_on "libunwind"
+    depends_on "gcc@10"
   end
 
   # https://github.com/stellar/stellar-core/blob/master/INSTALL.md#build-dependencies

@@ -58,8 +58,8 @@ class StellarCoreAT20 < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "libunwind"
     depends_on "gcc@10"
+    depends_on "libunwind"
   end
 
   # https://github.com/stellar/stellar-core/blob/master/INSTALL.md#build-dependencies

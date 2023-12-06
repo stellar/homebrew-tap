@@ -13,6 +13,7 @@ class SorobanCli < Formula
   end
 
   test do
+
     assert_match "soroban 20.0.0", shell_output("#{bin}/soroban version")
   end
 end

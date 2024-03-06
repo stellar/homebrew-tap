@@ -8,7 +8,7 @@ class SorobanCli < Formula
 
   def install
     chdir "cmd/soroban-cli" do
-      system "cargo", "install", "--bin=soroban" *std_cargo_args
+      system "cargo", "install", "--bin=soroban", *std_cargo_args
     end
   end
 

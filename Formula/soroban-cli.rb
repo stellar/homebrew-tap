@@ -1,8 +1,8 @@
 class SorobanCli < Formula
   desc "CLI for interacting with and deploying to Soroban"
   homepage "https://soroban.stellar.org"
-  url "https://github.com/stellar/soroban-tools.git", tag: "v20.1.0"
-  head "https://github.com/stellar/soroban-tools.git", branch: "main"
+  url "https://github.com/stellar/soroban-cli.git", tag: "v20.3.1"
+  head "https://github.com/stellar/soroban-cli.git", branch: "main"
 
   depends_on "rust" => :build
 
@@ -13,6 +13,6 @@ class SorobanCli < Formula
   end
 
   test do
-    assert_match "soroban 20.1.0", shell_output("#{bin}/soroban version")
+    assert_match "soroban 20.3.1", shell_output("#{bin}/soroban version")
   end
 end

@@ -22,15 +22,12 @@ jobs:
   test-bot:
     strategy:
       matrix:
-        os: [ubuntu-22.04, macos-12]
+        os: [ubuntu-22.04, macos-13, macos-14]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@86fe8bfcc0e2130aa1679d6bf1ff0323eecd8191
-
-      - name: Set up git
-        uses: Homebrew/actions/git-user-config@86fe8bfcc0e2130aa1679d6bf1ff0323eecd8191
+        uses: Homebrew/actions/setup-homebrew@40e9946c182a64b3db1bf51be0dcb915f7802aa9
 
       - name: Cache Homebrew Bundler RubyGems
         id: cache
@@ -40,21 +37,13 @@ jobs:
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
           restore-keys: ${{ runner.os }}-rubygems-
 
-      - run: brew update
-
-      - name: Install Homebrew Bundler RubyGems
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: brew install-bundler-gems
-
       - run: brew test-bot --only-cleanup-before
 
       - run: brew test-bot --only-setup
 
       - run: brew test-bot --only-tap-syntax
 
-      - run: brew test-bot --only-formulae --root-url 'https://ghcr.io/v2/stellar/homebrew-tap'
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
       - name: Upload bottles as artifact

@@ -29,14 +29,10 @@ jobs:
         uses: Homebrew/actions/git-try-push@c62170a03ff2bcb9ab097fd7d6acbc905618e42a
         with:
           token: ${{ github.token }}
-          branch: ${{ github.ref }}
+          branch: main
 
-      - name: Merge pr
-        uses: actions/github-script@v7
-        with:
-          script: |
-            await github.rest.pulls.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number,
-            })
+      - name: Delete branch
+        if: github.event.pull_request.head.repo.fork == false
+        env:
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: git push --delete origin "$BRANCH"
